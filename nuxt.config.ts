@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  css: ["@/assets/css/main.css"],
+  css: ["@/assets/css/global.less", "@/assets/css/media.less"],
   postcss: {
     plugins: {
       tailwindcss: {},

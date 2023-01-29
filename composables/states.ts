@@ -13,3 +13,4 @@ export const useDropdownOptions = () =>
 
 // export const useDropdown = () =>
 //   useState<DropdownInterface>("dropdown", () => reactive(new Dropdown()));
+export const useDarkMode = () => useState<boolean>("darkMode", () => ref(true));

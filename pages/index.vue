@@ -1,290 +1,267 @@
 <template>
-  <div class="flex flex-col bg-gray-100 w-full h-full box-border">
-    <header
-      class="header ctn grey-shadow p-3 flex w-full bg-white justify-between"
-    >
-      <!-- home -->
-      <nav class="flex items-center">
-        <p class="flex items-center cursor-pointer gap-2">
-          <img class="w-10" src="/images/MinecraftLogo.png" alt="" />
-          <span class="text-2xl font-bold opacity-80">HOME</span>
-        </p>
-      </nav>
-      <!-- search -->
-      <form class="flex items-center w-4/12">
-        <label for="simple-search" class="sr-only">Search</label>
-        <div class="relative w-full">
+  <div
+    class="flex flex-col bg-gray-100 w-full h-full box-border"
+    :class="darkMode"
+  >
+    <!-- header -->
+    <div class="grey-shadow bg-white dark:bg-slate-900 dark:text-white">
+      <header class="my-container header p-3 flex w-full justify-between">
+        <HeaderLogo />
+        <!-- search -->
+        <HeaderSearch />
+        <!-- userinfo -->
+        <HeaderFunctions />
+      </header>
+    </div>
+
+    <!-- main -->
+    <div class="dark:bg-slate-800 dark:text-white">
+      <main class="my-container flex p-4">
+        <!-- 左侧边栏 -->
+        <aside class="aside">
           <div
-            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            class="text-gray-900 shadow bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
-            <svg
-              aria-hidden="true"
-              class="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              type="button"
+              class="relative flex items-center w-full px-8 py-4 text-sm font-medium border-b border-gray-200 rounded-t-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
             >
-              <path
-                fill-rule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+              <svg
+                class="w-6 h-6 mr-2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+                ></path>
+              </svg>
+              <span style="min-width: 4rem; text-align: left">推荐</span>
+            </button>
+            <button
+              type="button"
+              class="relative flex items-center w-full px-8 py-4 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                ></path>
+              </svg>
+              最新
+            </button>
+            <button
+              type="button"
+              class="relative rounded-b-lg inline-flex items-center w-full px-8 py-4 text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+            >
+              <svg
+                class="w-6 h-6 mr-2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                ></path>
+              </svg>
+              关注
+            </button>
           </div>
-          <input
-            type="text"
-            id="simple-search"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            ></path>
-          </svg>
-          <span class="sr-only">Search</span>
-        </button>
-      </form>
-      <!-- userinfo -->
-      <div class="userinfo flex items-center justify-center">
-        <!-- 功能区 -->
-        <div class="functions flex items-center justify-center">
-          <!-- 发表 -->
-          <button
-            type="button"
-            @click="publishedHandle"
-            class="flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            <svg
-              class="w-6 h-6 dark:text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-              ></path>
-            </svg>
-            <p>发表</p>
-          </button>
-          <!-- 登陆 -->
-          <button
-            type="button"
-            @click="loginHandle"
-            class="flex items-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-          >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              class="w-6 h-6"
-              stroke-width="1.5"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-              ></path>
-            </svg>
-            <p>登陆</p>
-          </button>
-          <!-- 暗色模式切换 -->
-          <button
-            type="button"
-            @click="darkmodeHandle"
-            class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
-          >
-            <svg
-              class="cursor-pointer w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        <!-- 宽度缩小后的功能区 -->
-        <div class="dropmenu">
-          <button
-            ref="$triggerEl"
-            id="dropdownMenuIconHorizontalButton"
-            data-dropdown-toggle="dropdownDotsHorizontal"
-            class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            type="button"
-          >
-            <svg
-              class="w-6 h-6"
-              aria-hidden="true"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              ></path>
-            </svg>
-          </button>
-          <!-- Dropdown menu -->
-          <div
-            id="dropdownDotsHorizontal"
-            ref="$targetEl"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <ul
-              class="py-2 text-sm text-gray-700 dark:text-gray-200"
-              aria-labelledby="dropdownMenuIconHorizontalButton"
-            >
-              <li>
-                <a
-                  href="#"
-                  @click="publishedHandle"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >发表</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  @click="loginHandle"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >登录</a
-                >
-              </li>
-              <li>
-                <div
-                  class="flex p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                >
-                  <label
-                    class="relative inline-flex items-center w-full cursor-pointer"
-                  >
-                    <input
-                      @click="darkmodeHandle"
-                      type="checkbox"
-                      value=""
-                      class="sr-only peer"
-                    />
-                    <div
-                      class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-500 peer-checked:bg-blue-600"
-                    ></div>
-                    <span
-                      class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      >暗色模式</span
-                    >
-                  </label>
+        </aside>
+        <!-- 主要内容区 -->
+        <div class="mx-4 flex-1">
+          <ul>
+            <li>
+              <div
+                class="flex gap-8 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              >
+                <div class="flex-2 flex flex-col items-center">
+                  <img class="w-16 rounded" src="/images/venti.png" />
+                  <span class="font-bold text-slate-700 dark:text-slate-50">
+                    Venti
+                  </span>
                 </div>
-              </li>
-            </ul>
-          </div>
+                <div>
+                  <a href="#">
+                    <h5
+                      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                    >
+                      这是一条测试Title
+                    </h5>
+                  </a>
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Here are the biggest enterprise technology acquisitions of
+                    2021 so far, in reverse chronological order.
+                  </p>
+                  <ul class="statistics flex gap-10">
+                    <li class="flex gap-1 items-end cursor-pointer">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"
+                        ></path>
+                      </svg>
+                      <span class="text-xs">赞</span>
+                      <span class="text-xs">999</span>
+                    </li>
+                    <li class="flex gap-1 items-end cursor-pointer">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+                        ></path>
+                      </svg>
+                      <span class="text-xs">评论</span>
+                      <span class="text-xs">999</span>
+                    </li>
+                    <li class="flex gap-1 items-end cursor-pointer">
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                        ></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        ></path>
+                      </svg>
+                      <span class="text-xs">浏览</span>
+                      <span class="text-xs">999</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
-    </header>
-    <main class="flex gap-10">
-      <aside>aside1</aside>
-      <div>content</div>
-      <aside>aside2</aside>
-    </main>
-    <footer>footer</footer>
+        <!-- 右侧边栏 -->
+        <aside class="aside2">
+          <div
+            class="flex flex-col gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <a href="#">
+              <h5
+                class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                签到
+              </h5>
+            </a>
+            <hr />
+            <!-- card content -->
+            <div class="flex gap-10">
+              <p
+                class="flex items-center mb-3 font-normal text-gray-700 dark:text-gray-400"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+                  ></path>
+                </svg>
+                <span>积分</span>
+              </p>
+              <!-- 签到btn -->
+              <a
+                href="#"
+                class="inline-flex gap-1 items-center px-10 py-2 text-sm font-medium text-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >
+                立即签到
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <!-- footer -->
+    <div>
+      <footer class="my-container p-4">footer</footer>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Dropdown, DropdownInterface } from "flowbite";
-const $targetEl = ref<HTMLElement>();
-const $triggerEl = ref<HTMLElement>();
-const options = useDropdownOptions().value;
-let dropdown: DropdownInterface = reactive({}) as DropdownInterface;
-
-options.onShow = function () {
-  console.log("hello world");
-  console.log("dropdown");
-};
-options.onHide = function () {};
-options.onToggle = function () {};
-
-onMounted(() => {
-  console.log($targetEl.value);
-  console.log($triggerEl.value);
-  dropdown = new Dropdown($targetEl.value, $triggerEl.value, options);
+const darkMode = computed(() => {
+  return useDarkMode().value == true ? "dark" : "";
 });
-
-function publishedHandle() {
-  console.log("发表按钮触发");
-  dropdown.toggle();
-}
-function loginHandle() {
-  console.log("登陆按钮触发");
-  dropdown.toggle();
-}
-function darkmodeHandle() {
-  console.log("暗色模式触发");
-}
 </script>
 
-<style>
-#__nuxt {
-  height: 100%;
-}
-html,
-body {
-  height: 100%;
-}
-.grey-shadow {
-  box-shadow: 0px 1px 10px #b7b7b7;
-}
+<style scoped>
 .header {
-}
-.ctn {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-@media (max-width: 1200px) {
-  :root {
-    font-size: 15px;
-  }
-}
-@media (max-width: 700px) {
-  :root {
-    font-size: 14px;
-  }
-  .functions {
-    display: none;
-  }
-  .header form {
-    width: 50%;
-  }
-}
-@media (min-width: 700px) {
-  .dropmenu {
-    display: none;
-  }
 }
 </style>
