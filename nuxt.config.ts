@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  css: ["@/assets/css/main.css"], // 加入这行在这里
+  css: ["@/assets/css/main.css"],
   postcss: {
     plugins: {
       tailwindcss: {},

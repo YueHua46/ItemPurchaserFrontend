@@ -1,42 +1,30 @@
-# Nuxt 3 Minimal Starter
+# Item Purchaser Frontend 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 技术栈
+- SSR - Nuxt3
+- Vue3
+- TypeScript
+- Taiwindcss
+- Flowbite UI（基于taiwindcss）
 
-## Setup
+## 运行项目
 
-Make sure to install the dependencies:
+### 安装依赖
 
-```bash
-# yarn
-yarn install
+> npm i
 
-# npm
-npm install
+### 运行dev环境
 
-# pnpm
-pnpm install
-```
+> npm run dev
 
-## Development Server
+运行之后在`localhost:3000`打开测试
 
-Start the development server on http://localhost:3000
+### 打包
 
-```bash
-npm run dev
-```
+#### 打包为拥有前后端功能的全栈项目
 
-## Production
+> npm run build
 
-Build the application for production:
+#### 打包为仅有前端的静态页面项目
 
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+> npm run generate
