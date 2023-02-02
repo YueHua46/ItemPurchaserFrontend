@@ -5,6 +5,8 @@
     <MyHeaderSearch />
     <!-- userinfo -->
     <MyHeaderFunctions />
+    <!-- login -->
+    <MyHeaderLogin />
   </header>
 </template>
 

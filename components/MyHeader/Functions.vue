@@ -49,7 +49,6 @@
           </svg>
           <p>登陆</p>
         </button>
-        <MyHeaderLogin />
       </div>
       <!-- 暗色模式切换 -->
       <button
@@ -116,11 +115,15 @@
           </li>
           <li>
             <a
+              data-modal-target="authentication-modal"
+              data-modal-toggle="authentication-modal"
               href="#"
               @click="loginHandle"
               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >登录</a
             >
+              登录
+            </a>
+            <!-- <MyHeaderLogin /> -->
           </li>
           <li>
             <div

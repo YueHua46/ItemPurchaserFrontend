@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col bg-gray-100 w-full h-full box-border"
+    class="flex relative flex-col bg-gray-100 w-full h-full box-border"
     :class="darkMode"
   >
     <!-- header -->

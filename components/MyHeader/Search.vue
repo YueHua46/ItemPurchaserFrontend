@@ -1,5 +1,5 @@
 <template>
-  <form class="flex items-center w-4/12">
+  <form class="search flex items-center w-4/12">
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full">
       <div
