@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  
   css: ["@/assets/css/global.less", "@/assets/css/media.less"],
   postcss: {
     plugins: {
@@ -6,4 +7,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+
+  runtimeConfig: {
+    public: {
+      api: {
+        baseUrl: 'http://localhost:4080',
+      },
+    },
+  },
+
 });
