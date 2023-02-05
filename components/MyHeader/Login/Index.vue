@@ -1,6 +1,4 @@
 <template>
-  <!-- Modal toggle -->
-
   <!-- Main modal -->
   <div
     ref="$targetEl"
