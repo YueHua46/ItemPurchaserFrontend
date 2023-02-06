@@ -24,6 +24,9 @@ export const useModalOptions = () =>
 export const useModal = () =>
   useState<Modal>('modal', () => reactive({}) as Modal)
 
+export const useModalregister = () =>
+  useState<Modal>('modalRegister', () => reactive({}) as Modal)
+
 // export const useDropdown = () =>
 //   useState<DropdownInterface>("dropdown", () => reactive(new Dropdown()));
 export const useDarkMode = () => useState<boolean>('darkMode', () => ref(true))

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/*标题模板与网站关键词配置*/
 useHead({
   titleTemplate: title => {
     return title ? `Minecraft_BBS-${title}` : 'Minecraft-Chain-BBS'
@@ -14,8 +15,9 @@ useHead({
   link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 })
 
-const runtime = useRuntimeConfig()
-console.log(runtime.public.api.baseUrl)
+/*测试全局Api配置接口 */
+// const runtime = useRuntimeConfig()
+// console.log(runtime.public.api.baseUrl)
 </script>
 
 <template>

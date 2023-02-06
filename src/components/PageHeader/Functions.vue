@@ -50,6 +50,15 @@
           <p>登陆</p>
         </button>
       </div>
+
+      <!-- 用户 -->
+      <div class="relative mx-3" @click="openUser">
+        <img class="w-10 h-10 rounded-full" src="images/creeper2.png" alt="" />
+        <span
+          class="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"
+        ></span>
+      </div>
+      <PageHeaderUserNoification />
       <!-- 暗色模式切换 -->
       <button
         type="button"
@@ -155,36 +164,39 @@
 </template>
 
 <script setup lang="ts">
-import { Dropdown, DropdownInterface } from "flowbite";
+import { Dropdown, DropdownInterface } from 'flowbite'
 
-const $targetEl = ref<HTMLElement>();
-const $triggerEl = ref<HTMLElement>();
-const options = useDropdownOptions().value;
-const darkMode = useDarkMode().value;
-let dropdown: DropdownInterface = reactive({}) as DropdownInterface;
+const $targetEl = ref<HTMLElement>()
+const $triggerEl = ref<HTMLElement>()
+const options = useDropdownOptions().value
+const darkMode = useDarkMode().value
+let dropdown: DropdownInterface = reactive({}) as DropdownInterface
 
-options.onShow = function () {};
-options.onHide = function () {};
-options.onToggle = function () {};
+options.onShow = function () {}
+options.onHide = function () {}
+options.onToggle = function () {}
 
 onMounted(() => {
-  console.log($targetEl.value);
-  console.log($triggerEl.value);
-  dropdown = new Dropdown($targetEl.value, $triggerEl.value, options);
-});
+  // console.log($targetEl.value);
+  // console.log($triggerEl.value);
+  dropdown = new Dropdown($targetEl.value, $triggerEl.value, options)
+})
 function publishedHandle() {
-  console.log("发表按钮触发");
-  dropdown.toggle();
+  console.log('发表按钮触发')
+  dropdown.toggle()
 }
 function loginHandle() {
-  console.log("登陆按钮触发");
-  dropdown.toggle();
-  useModal().value.toggle();
+  console.log('登陆按钮触发')
+  dropdown.toggle()
+  useModal().value.toggle()
 }
 function darkmodeHandle() {
-  console.log("暗色模式触发");
-  console.log("darkMode", darkMode);
-  useDarkMode().value = !useDarkMode().value;
+  console.log('暗色模式触发')
+  console.log('darkMode', darkMode)
+  useDarkMode().value = !useDarkMode().value
+}
+function openUser() {
+  console.log('打开用户信息')
 }
 </script>
 
