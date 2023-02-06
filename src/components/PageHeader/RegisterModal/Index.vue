@@ -138,7 +138,7 @@ onMounted(() => {
 
 /*关闭注册模态*/
 function modalCloseHandle() {
-  registerModalStore.modal.toggle()
+  registerModalStore.toggle()
 }
 </script>
 

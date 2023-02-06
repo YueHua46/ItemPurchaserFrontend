@@ -127,15 +127,15 @@ onMounted(() => {
 
 /*关闭登录框*/
 function modalCloseHandle() {
-  loginModalStore.modal.toggle()
+  loginModalStore.toggle()
 }
 
 /*打开注册模态并关闭登录模态*/
 function openRegister() {
   // 登陆modal关闭
-  loginModalStore.modal.toggle()
+  loginModalStore.toggle()
   // 注册modal开启
-  registerModalStore.modal.toggle()
+  registerModalStore.toggle()
 }
 </script>
 
