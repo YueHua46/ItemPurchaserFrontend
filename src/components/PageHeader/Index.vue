@@ -5,10 +5,10 @@
     <PageHeaderSearch />
     <!-- userinfo -->
     <PageHeaderFunctions />
-    <!-- login -->
-    <PageHeaderLogin />
-    <!-- Register -->
-    <PageHeaderRegister />
+    <!-- loginModal -->
+    <PageHeaderLoginModal />
+    <!-- RegisterModal -->
+    <PageHeaderRegisterModal />
   </header>
 </template>
 

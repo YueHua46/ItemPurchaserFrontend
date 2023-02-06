@@ -1,19 +1,19 @@
 <template>
-  <!-- 登录模态框实例 -->
+  <!-- 注册模态框配置 -->
   <div
     ref="$targetEl"
-    id="authentication-modal"
+    id="authentication-modal-register"
     tabindex="-1"
     aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto inset-0 h-modal h-full"
   >
     <div class="relative w-full h-auto max-w-md">
-      <!-- 登录表单内容 -->
+      <!-- 注册表单内容 -->
       <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
         <button
           type="button"
           class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-          data-modal-hide="authentication-modal"
+          data-modal-hide="authentication-modal-register"
           @click="modalCloseHandle"
         >
           <svg
@@ -29,83 +29,94 @@
               clip-rule="evenodd"
             ></path>
           </svg>
-          <span class="sr-only">登录</span>
+          <span class="sr-only">Close modal</span>
         </button>
         <div class="px-6 py-6 lg:px-8">
           <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-            欢迎登录到您的账户
+            注册账号
           </h3>
           <form class="space-y-6" action="#">
+            <!-- 邮箱 -->
             <div>
               <label
                 for="email"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >用户名</label
+                >您注册使用的邮箱</label
               >
               <input
                 type="email"
-                name="Login-email"
-                id="Login-email"
+                name="register-email"
+                id="register-email"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="用户名或邮箱登录"
+                placeholder="name@company.com"
                 required
               />
             </div>
+
+            <!-- 用户名 -->
+            <div>
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >您想使用的用户名</label
+              >
+              <input
+                type="text"
+                name="register-username"
+                id="register-username"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="请输入用户名"
+                required
+              />
+            </div>
+
+            <!-- 密码 -->
             <div>
               <label
                 for="password"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >密码</label
+                >您的密码</label
               >
               <input
                 type="password"
-                name="Login-password"
-                id="Login-password"
+                name="register-password"
+                id="register-password"
                 placeholder="••••••••"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required
               />
             </div>
-            <div class="flex justify-between">
-              <div class="flex items-start">
-                <div class="flex items-center h-5">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    value=""
-                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                    required
-                  />
-                </div>
-                <label
-                  for="remember"
-                  class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >记住此次登录</label
-                >
-              </div>
-              <a
-                href="#"
-                class="text-sm text-blue-700 hover:underline dark:text-blue-500"
-                >忘记密码?</a
+            <!-- 二次确认密码 -->
+            <div>
+              <label
+                for="password"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >请再次输入您的密码</label
               >
+              <input
+                type="password-two"
+                name="register-password-two"
+                id="register-password-two"
+                placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
             </div>
+
+            <!-- 注册按钮 -->
             <button
               type="submit"
               class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              立即登录
+              立即注册
             </button>
             <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-              您还没有账号?
-              <button
-                data-modal-target="authentication-modal-register"
-                data-modal-toggle="authentication-modal-register"
+              您注册成功即表示您同意本协议
+              <a
                 href="#"
-                @click.prevent="openRegister"
                 class="text-blue-700 hover:underline dark:text-blue-500"
+                >《用户使用协议》</a
               >
-                注册
-              </button>
             </div>
           </form>
         </div>
@@ -115,24 +126,19 @@
 </template>
 
 <script setup lang="ts">
-import { Modal } from 'flowbite'
 const $targetEl = ref<HTMLElement>()
-const options = useModalOptions().value
+const registerModalStore = useRegisterModalStore()
 
-/*创建模态实例 */
+/*创建注册模态实例*/
 onMounted(() => {
-  useModal().value = new Modal($targetEl.value, options)
+  registerModalStore.modalChange(
+    new Modal($targetEl.value, registerModalStore.modalOptions)
+  )
 })
 
-/*关闭登录框*/
+/*关闭注册模态*/
 function modalCloseHandle() {
-  useModal().value.toggle()
-}
-
-/*打开注册模态并关闭登录模态*/
-function openRegister() {
-  useModal().value.toggle()
-  useModalregister().value.toggle()
+  registerModalStore.modal.toggle()
 }
 </script>
 

@@ -2,7 +2,7 @@
 <template>
   <div
     class="flex relative flex-col bg-gray-100 w-full h-full box-border"
-    :class="darkMode"
+    :class="darkmodeStore.theme"
   >
     <!-- 头部配置 -->
     <div class="grey-shadow bg-white dark:bg-slate-900 dark:text-white">
@@ -22,11 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import $http from '../request/http'
-
-const darkMode = computed(() => {
-  return useDarkMode().value == true ? 'dark' : ''
-})
+const darkmodeStore = useDarkmodeStore()
 
 useHead({
   title: '首页',
