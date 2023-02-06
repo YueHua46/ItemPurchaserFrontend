@@ -9,7 +9,7 @@
       <!-- 用户 -->
       <PageHeaderFunctionsUser />
       <!-- 用户消息 -->
-      <!-- <PageHeaderFunctionsUserNoification /> -->
+      <PageHeaderFunctionsUserNoification />
       <!-- 暗色模式切换 -->
       <PageHeaderFunctionsDarkChange />
     </div>
