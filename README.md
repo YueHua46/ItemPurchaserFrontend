@@ -4,14 +4,14 @@
 - SSR - Nuxt3
 - Vue3
 - TypeScript
-- Taiwindcss
-- Flowbite UI（基于taiwindcss）
+- Tailwindcss
+- Flowbite UI（基于tailwindcss）
 
 ## 运行项目
 
 ### 安装依赖
 
-> npm i
+> yarn install
 
 ### 运行dev环境
 
