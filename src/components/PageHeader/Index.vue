@@ -7,6 +7,8 @@
     <PageHeaderFunctions />
     <!-- login -->
     <PageHeaderLogin />
+    <!-- Register -->
+    <PageHeaderRegister />
   </header>
 </template>
 

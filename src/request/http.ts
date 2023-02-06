@@ -1,3 +1,4 @@
+/*网络请求封装体*/
 type IObject = Record<string, any> & Object
 
 function checkError(error: any, data: IObject) {
